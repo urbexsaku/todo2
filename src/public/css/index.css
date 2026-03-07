@@ -5,11 +5,15 @@
   padding: 10px 30px;
 }
 
-.messag--error {
+.message--error {
   background-color: #f8d7da;
   color: #842029;
   border-color: #f5c2c7;
   padding: 10px 40px;
+}
+
+.message--error ul {
+  margin: 0;
 }
 
 .todo__content {
@@ -32,6 +36,7 @@
 .create-form__item input {
   width: 80%;
   height: 30px;
+  padding: 5px;
 }
 
 .create-form__button-submit {
@@ -71,6 +76,13 @@
 
 .update-form__item {
   width: 80%;
+  line-height: 50%;
+}
+
+.update-form__item-input {
+  border: none;
+  outline: none;
+  width: 100%;
 }
 
 .todo-table__item:first-of-type {
