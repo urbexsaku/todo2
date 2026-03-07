@@ -1,0 +1,104 @@
+.message--success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border-color: #badbcc;
+  padding: 10px 30px;
+}
+
+.messag--error {
+  background-color: #f8d7da;
+  color: #842029;
+  border-color: #f5c2c7;
+  padding: 10px 40px;
+}
+
+.todo__content {
+  margin: 0 auto;
+  max-width: 1230px;
+  padding: 60px 15px;
+}
+
+.create-form {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.create-form__item {
+  width: 70%;
+}
+
+.create-form__item input {
+  width: 80%;
+  height: 30px;
+}
+
+.create-form__button-submit {
+  background-color: #000;
+  color: #fff;
+  padding: 3px;
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.todo-table {
+  margin: 30px auto;
+  width: 70%;
+}
+
+.todo-table__inner {
+  width: 100%;
+}
+
+.todo-table__row {
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-table__header {
+  padding: 12px;
+  width: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.update-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.update-form__item {
+  width: 80%;
+}
+
+.todo-table__item:first-of-type {
+  width: 90%;
+  padding: 12px;
+}
+
+.update-form__button,
+.delete-form__button {
+  width: 50px;
+}
+
+.update-form__button-submit {
+  width: 100%;
+  background-color: #0000ff;
+  color: #fff;
+  border-radius: 3px;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-form__button-submit {
+  width: 100%;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 3px;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+}
