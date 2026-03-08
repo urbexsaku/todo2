@@ -30,8 +30,7 @@
   justify-content: space-between;
 }
 
-.header-nav__link {
-  text-decoration: none;
+.header-nav__name {
   color: white;
   font-size: 16px;
 }

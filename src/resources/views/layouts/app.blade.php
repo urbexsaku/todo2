@@ -16,14 +16,17 @@
       <a class="header__logo" href="/">Todo</a>
       <nav>
         <ul class="header-nav">
+          @if(Auth::check())
           <li class="header-nav__item">
-            <a class="header-nav__link" href="/">マイページ</a>
+            <span class="header-nav__name">{{ Auth::user()->name }}のマイページ</span>
           </li>
           <li class="header-nav__item">
-            <form>
+            <form class="form" action="/logout" method="post">
+              @csrf
               <button class="header-nav__button">ログアウト</button>
             </form>
           </li>
+          @endif
         </ul>
       </nav>
     </div>
