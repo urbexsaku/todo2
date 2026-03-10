@@ -21,6 +21,9 @@
             <span class="header-nav__name">{{ Auth::user()->name }}のマイページ</span>
           </li>
           <li class="header-nav__item">
+            <span class="header-nav__name">カテゴリ一覧</span>
+          </li>
+          <li class="header-nav__item">
             <form class="form" action="/logout" method="post">
               @csrf
               <button class="header-nav__button">ログアウト</button>

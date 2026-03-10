@@ -19,6 +19,11 @@ class TodoController extends Controller
             'content' => $request->content,
         ]);
 
+        // Todo::create([
+        //     'content' => $request->content,
+        //     'user_id' => Auth::id()
+        // ]);
+
         return redirect('/')->with('message','todoを登録しました');
     }
 

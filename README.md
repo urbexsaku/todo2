@@ -6,7 +6,7 @@ To Doを登録、変更、削除するアプリ
 #### リポジトリをクローン
 
 ```
-git clone git@github.com:Estra-Coachtech/laravel-docker-template.git
+git clone git@github.com:urbexsaku/todo2.git
 ```
 
 #### Laravelのビルド
@@ -64,13 +64,13 @@ php artisan migrate
 
 ## 使用技術（実行環境）
 
-フレームワーク：Laravel
+フレームワーク：Laravel 8.75
 
-言語：php
+言語：php 8.1
 
-Webサーバー：nginx
+Webサーバー：nginx 1.21.1
 
-データベース：mysql
+データベース：mysql 8.0.26
 
 ## ER図
 
@@ -79,7 +79,5 @@ Webサーバー：nginx
 ## URL
 
 アプリケーション：http://localhost/
-
-管理画面：◯◯◯◯◯ ◯◯◯◯ ◯◯◯◯
 
 phpMyAdmin：http://localhost:8080
