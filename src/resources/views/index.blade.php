@@ -29,8 +29,10 @@
     @csrf
     <div class="create-form__item">
       <input type="text" name="content" value="{{ old('content') }}">
-      <select class="create-form__item-select">
-        <option value="">カテゴリ</option>
+      <select class="create-form__item-select" name="category_id">
+        @foreach($categories as $category)
+        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+        @endforeach
       </select>
     </div>
     <div class="create-form__button">
@@ -40,12 +42,14 @@
   <div class="section__title">
     <h2>Todo検索</h2>
   </div>
-  <form class="search-form" action="/todos" method="post">
+  <form class="search-form" action="/todos/search" method="get">
     @csrf
     <div class="search-form__item">
-      <input type="text" name="content" value="">
-      <select class="search-form__item-select">
-        <option value="">カテゴリ</option>
+      <input type="text" name="keyword" value="{{ old('keyword') }}">
+      <select class="search-form__item-select" name="category_id">
+        @foreach($categories as $category)
+        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+        @endforeach
       </select>
     </div>
     <div class="search-form__button">
@@ -54,11 +58,17 @@
   </form>
   <div class="todo-table">
     <table class="todo-table__inner">
+      <colgroup>
+        <col style="width:40%">
+        <col style="width:40%">
+        <col style="width:10%">
+        <col style="width:10%">
+      </colgroup>
       <tr class="todo-table__row">
-        <th class="todo-table__header">
-          <span class="todo-table__header-span">Todo</span>
-          <span class="todo-table__header-span">カテゴリ</span>
-        </th>
+        <th class="todo-table__header">Todo</th>
+        <th class="todo-table__header">カテゴリ</th>
+        <th></th>
+        <th></th>
       </tr>
       @foreach ($todos as $todo)
       <tr class="todo-table__row">
@@ -66,16 +76,15 @@
           <form class="update-form" action="/todos/update" method="post">
             @method('PATCH')
             @csrf
-            <div class="update-form__item">
-              <input class="update-form__item-input" type="text" name="content" value="{{ $todo['content']}}">
-              <input type="hidden" name="id" value="{{ $todo['id'] }}">
-            </div>
-            <div class="update-form__item">
-              <p class="update-form__item-p">Category 1</p>
-            </div>
-            <div class="update-form__button">
-              <button class="update-form__button-submit">更新</button>
-            </div>
+            <input class="update-form__item-input" type="text" name="content" value="{{ $todo['content']}}">
+            <input type="hidden" name="id" value="{{ $todo['id'] }}">
+        </td>
+        <td class="update-form__item">
+          <p class="update-form__item-p">{{ $todo['category']['name']}}</p>
+        </td>
+        <td class="update-form__button">
+          <button class="update-form__button-submit">更新</button>
+        </td>
           </form>
         </td>   
         <td class="todo-table__item">

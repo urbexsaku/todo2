@@ -6,17 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Todo;
 use App\Http\Requests\TodoRequest;
 use Illuminate\Support\Facades\Auth; //追加
+use App\Models\Category;
 
 class TodoController extends Controller
 {
     public function index (){
-        $todos = Todo::where('user_id', Auth::id())->get(); //ログインユーザー（Auth::id）のtodoを取得
-        return view('index',compact('todos'));
+        $todos = Todo::with('category')->where('user_id', Auth::id())->get(); //ログインユーザー（Auth::id）のtodoを取得
+        $categories = Category::where('user_id', Auth::id())->get(); //ログインユーザーのカテゴリを取得
+        return view('index',compact('todos', 'categories'));
     }
     
     public function store(TodoRequest $request){
         Auth::user()->todos()->create([ //ログインユーザー（Auth::id）に紐づくtodosテーブルに登録
             'content' => $request->content,
+            'category_id' => $request->category_id,
         ]);
 
         // Todo::create([
@@ -43,5 +46,12 @@ class TodoController extends Controller
             ->delete();                     //削除
 
         return redirect('/')->with('message','todoを削除しました');
+    }
+
+    public function search(Request $request){
+        $todos = Todo::with('category')->CategorySearch($request->category_id)->KeywordSearch($request->keyword)->get(); //フォームの値をカテゴリーidで検索＆フォームの値をcontentで部分一致検索⇒todosとしてindexに戻す
+        $categories = Category::all();
+
+        return view ('index', compact('todos', 'categories'));
     }
 }

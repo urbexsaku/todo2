@@ -18,10 +18,10 @@
         <ul class="header-nav">
           @if(Auth::check())
           <li class="header-nav__item">
-            <span class="header-nav__name">{{ Auth::user()->name }}のマイページ</span>
+            <a class="header-nav__link" href="/">{{ Auth::user()->name }}のマイページ</a>
           </li>
           <li class="header-nav__item">
-            <span class="header-nav__name">カテゴリ一覧</span>
+            <a class="header-nav__link" href="/categories">カテゴリ一覧</a>
           </li>
           <li class="header-nav__item">
             <form class="form" action="/logout" method="post">

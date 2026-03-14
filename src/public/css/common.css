@@ -36,6 +36,12 @@
   font-size: 16px;
 }
 
+.header-nav__link {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+}
+
 .header-nav__button {
   border: none;
   outline: none;
